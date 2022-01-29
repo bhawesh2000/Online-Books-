@@ -1,0 +1,73 @@
+
+<!--
+<mat-toolbar color="primary">
+  <span><img src="/assets/images/logo.png" height=30 width=auto></span>
+  <div class="navigate">
+    <form id="container" class="searchbox">
+      <a mat-button><span class="fa fa-search"></span><input type="text" placeholder="Search.." [formControl]="activity"  [matAutocomplete]="auto"></a>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+    <a mat-button><span class="fa fa-info fa-lg"></span> About</a>
+    <a mat-button><span class="fa fa-address-card fa-lg"></span> Contact</a>
+  </div>
+  <span class="flex-spacer"></span>
+  <a mat-button><span class="fa fa-sign-in">Login</span></a>
+</mat-toolbar>
+-->
+
+
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div fxLayout="row">
+      <button mat-button>
+        <span><img src="/assets/images/logo.png" alt="Logo" height=40 width=150px></span>
+        </button>
+      <form>
+             <a mat-button><mat-icon>search</mat-icon><input type="text" placeholder="Search.." [formControl]="activity"  [matAutocomplete]="auto" style="width: 200px; height: 25px;"></a>
+         <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+    
+         
+          <button style="font-size:larger" mat-button [matMenuTriggerFor]="SubMenu">Subjects<mat-icon>list</mat-icon></button>
+          <mat-menu #SubMenu="matMenu">
+            <button mat-menu-item>Biology</button>
+            <button mat-menu-item>Chemistry</button>
+          </mat-menu> 
+          <button style="font-size:larger" mat-button [matMenuTriggerFor]="Menu">Language<mat-icon>g_translate</mat-icon></button>
+          <mat-menu #Menu="matMenu">
+            <mat-option *ngFor="let ver of version" [routerLink]="['/hindi', ver]">{{ver}}</mat-option>
+          </mat-menu> 
+         
+      </form>
+    </div>
+    
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<div class="container jumbotron"
+    fxLayout="row"
+    fxLayout.sm="column" 
+    fxLayout.xs="column" 
+    fxLayoutAlign.xs="start center"
+    fxLayoutAlign.sm="start center" 
+    fxLayoutAlign.gt-sm="center center" 
+    fxLayoutGap="50px">
+
+  <div fxFlex fxFlex.gt-sm="50%">
+    <img src="/assets/images/logo.png" alt="Logo">
+    <p>“The Purpose of education is to teach one to think intensively and to think critically. Intelligence plus character – that is the goal of true education”</p>
+  </div>
+  <div class="boy" fxFlex fxFlex.gt-sm="50%">
+    <img src="/assets/images/boy.png" alt="Logo" height=300px>
+  </div>
+</div>
