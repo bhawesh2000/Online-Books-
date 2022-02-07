@@ -16,8 +16,8 @@
 -->
 
 
-<div class="container" fxLayoutAlign.lt-md="center center">
-    <div  *ngIf="subject" fxLayout.gt-sm="row-reverse" fxLayout.lt-sm="column-reverse" fxLayoutGap="10px"  fxLayoutAlign.lt-md="center center">
+<div class="container" fxLayoutAlign="center center">
+    <div  *ngIf="subject" fxLayout="row-reverse" fxLayout.lt-sm="column-reverse" fxLayoutGap="10px">
             <mat-card fxFlex="25%" fxFlex.sm="33%" fxFlex.xs="100%"   *ngFor="let sub of subject" style="background-color: #7f5bd1;">
                 <img mat-card-image src="{{sub.IconUrl}}" alt="{{sub.Name}}">
                 <mat-card-footer>
