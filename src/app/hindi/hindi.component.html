@@ -3,7 +3,7 @@
     <div fxFlex  *ngIf="langselected">
         <mat-grid-list cols="2" rowHeight="200px">
             <mat-grid-tile *ngFor="let sub of  langselected">
-                <img src="{{sub.Url}}" alt={{sub.Name}}>
+                <img src="{{sub.IconUrl}}" alt={{sub.Name}}>
             <mat-grid-tile-footer>
                 <h1 matLine style="text-align: center;">{{sub.Name | uppercase}}</h1>
             </mat-grid-tile-footer>      
@@ -13,3 +13,7 @@
     
     </div>
     
+<!--
+  
+-->
+ 

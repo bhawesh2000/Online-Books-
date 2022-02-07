@@ -26,3 +26,12 @@ $background-pale: #D1C4E9;
 .navigate{
     align-items: center;
 }
+
+a:hover, a:active{
+    color: lightgray;
+}
+
+.navigation-items{
+    list-style-type: none;
+    
+}

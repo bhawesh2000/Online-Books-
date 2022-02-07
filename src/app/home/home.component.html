@@ -1,7 +1,8 @@
-<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutgap="10px">
+<!--
+<div class="container" fxLayout="row-wrap" fxLayoutgap="10px grid">
     
-<div fxFlex  *ngIf="subject">
-    <mat-grid-list cols="2" rowHeight="200px">
+<div fxFlex *ngIf="subject">
+    <mat-grid-list cols="2"  rowHeight="200px">
         <mat-grid-tile *ngFor="let sub of subject">
             <img src="{{sub.Url}}" alt={{sub.Name}}>
         <mat-grid-tile-footer>
@@ -11,5 +12,18 @@
     </mat-grid-list>
 </div>
 
+</div>
+-->
+
+
+<div class="container" fxLayoutAlign.lt-md="center center">
+    <div  *ngIf="subject" fxLayout.gt-sm="row-reverse" fxLayout.lt-sm="column-reverse" fxLayoutGap="10px"  fxLayoutAlign.lt-md="center center">
+            <mat-card fxFlex="25%" fxFlex.sm="33%" fxFlex.xs="100%"   *ngFor="let sub of subject" style="background-color: #7f5bd1;">
+                <img mat-card-image src="{{sub.IconUrl}}" alt="{{sub.Name}}">
+                <mat-card-footer>
+                    <h1 style="text-align: center; font-size: 25px;">{{sub.Name | uppercase}}</h1>
+                </mat-card-footer>
+            </mat-card>
+    </div>
 </div>
 

@@ -16,6 +16,7 @@ import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,8 +26,9 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { SubjectService } from './services/subject.service';
-import { baseUrl } from './shared/baseurl';
 import { HindiComponent } from './hindi/hindi.component';
+import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
+import { baseUrl } from './shared/baseurl';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { HindiComponent } from './hindi/hindi.component';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    HindiComponent
+    HindiComponent,
+    SidenavListComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,11 @@ import { HindiComponent } from './hindi/hindi.component';
     MatAutocompleteModule,
     MatMenuModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule
+  ],
+  exports:[
+    MatSidenavModule
   ],
   providers: [
     SubjectService,
@@ -62,4 +69,6 @@ import { HindiComponent } from './hindi/hindi.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

@@ -1,5 +1,5 @@
 export class Subject{
-    Url:string | undefined;
+    IconUrl:string | undefined;
     Version:string | undefined;
     Name:string | undefined;
 }

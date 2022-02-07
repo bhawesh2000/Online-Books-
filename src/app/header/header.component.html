@@ -20,20 +20,22 @@
 -->
 
 
-
+<!--
 <mat-toolbar color="primary">
+    
   <mat-toolbar-row>
     <div fxLayout="row">
       <button mat-button>
         <span><img src="/assets/images/logo.png" alt="Logo" height=40 width=150px></span>
         </button>
       <form>
-             <a mat-button><mat-icon>search</mat-icon><input type="text" placeholder="Search.." [formControl]="activity"  [matAutocomplete]="auto" style="width: 200px; height: 25px;"></a>
-         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            <a mat-button><mat-icon>search</mat-icon>
+            <input type="text" placeholder="Search.." [formControl]="activity"  [matAutocomplete]="auto" style="max-width: 200px; height: 25px;"></a>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
               {{option}}
-            </mat-option>
-          </mat-autocomplete>
+              </mat-option>
+            </mat-autocomplete>
     
          
           <button style="font-size:larger" mat-button [matMenuTriggerFor]="SubMenu">Subjects<mat-icon>list</mat-icon></button>
@@ -43,7 +45,7 @@
           </mat-menu> 
           <button style="font-size:larger" mat-button [matMenuTriggerFor]="Menu">Language<mat-icon>g_translate</mat-icon></button>
           <mat-menu #Menu="matMenu">
-            <mat-option *ngFor="let ver of version" [routerLink]="['/hindi', ver]">{{ver}}</mat-option>
+            <mat-option *ngFor="let ver of version" [routerLink]="['/hindi', ver]">{{ver}}</mat-option> 
           </mat-menu> 
          
       </form>
@@ -51,23 +53,71 @@
     
   </mat-toolbar-row>
 </mat-toolbar>
+-->
 
+<mat-toolbar color="primary" fxLayout.lt-md="row" >
+   
+    <div fxFlex fxFlex.gt-xs="50%">
+      <span><img fxFlex.lt-sm="80px"  src="/assets/images/logo.png" alt="Logo" height=35 width=120px></span>
+
+      <div fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-md>
+        <div fxLayout fxLayoutGap="15px" class="navigation-items">
+          <div>
+            <a style="font-size:larger" mat-button [matMenuTriggerFor]="SubMenu">Subjects<mat-icon>unfold_more</mat-icon></a>
+              <mat-menu #SubMenu="matMenu">
+                <button mat-menu-item>Biology</button>
+                <button mat-menu-item>Chemistry</button>
+              </mat-menu> 
+          </div>
+          
+          <div>
+            <a style="font-size:larger;" mat-button [matMenuTriggerFor]="Menu">Language<mat-icon>g_translate</mat-icon></a>
+            <mat-menu #Menu="matMenu">
+              <mat-option *ngFor="let ver of version" [routerLink]="['/hindi', ver]">{{ver}}</mat-option> 
+            </mat-menu>
+          </div>
+    
+          </div>
+      </div>
+    </div>  
+
+  
+      <div fxFlex fxFlex.gt-xs="40%" fxLayoutAlign.gt-xs="end">
+        <form>
+          <a mat-button><mat-icon>search</mat-icon>
+          <input type="text" placeholder="Search.." [formControl]="activity"  [matAutocomplete]="auto" style="max-width: 200px; height: 25px;"></a>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </form>
+      </div>
+    
+
+    <div fxFlex fxHide.gt-sm fxLayoutAlign.lt-sm="start">
+      <button mat-icon-button (click)="onToggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+</mat-toolbar>
 
 
 <div class="container jumbotron"
     fxLayout="row"
     fxLayout.sm="column" 
     fxLayout.xs="column" 
-    fxLayoutAlign.xs="start center"
-    fxLayoutAlign.sm="start center" 
+    fxLayoutAlign.xs="start"
+    
     fxLayoutAlign.gt-sm="center center" 
     fxLayoutGap="50px">
 
-  <div fxFlex fxFlex.gt-sm="50%">
-    <img src="/assets/images/logo.png" alt="Logo">
-    <p>“The Purpose of education is to teach one to think intensively and to think critically. Intelligence plus character – that is the goal of true education”</p>
+  <div fxFlex fxFlex.gt-md="40%" fxFlex.lt-sm="100%">
+    <img src="/assets/images/logo.png" alt="Logo" style="max-width: 330px;">
+    <p style="font-size: 20px;">“The Purpose of education is to teach one to think intensively and to think critically. Intelligence plus character – that is the goal of true education”</p>
   </div>
-  <div class="boy" fxFlex fxFlex.gt-sm="50%">
-    <img src="/assets/images/boy.png" alt="Logo" height=300px>
+  <div class="boy" fxFlex fxFlex.gt-md="40%">
+    <img src="/assets/images/boy.png" alt="Logo" style="max-width: 250px;">
   </div>
 </div>

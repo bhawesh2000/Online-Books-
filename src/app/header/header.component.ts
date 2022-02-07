@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Version } from '../shared/subject';
+import { SubjectService } from '../services/subject.service';
+
 
 
 @Component({
@@ -11,6 +13,8 @@ import { Version } from '../shared/subject';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit  {
+
+  @Output() public sidenavToggle = new EventEmitter();
 
   @Input() deviceXs:boolean;
   
@@ -28,17 +32,16 @@ export class HeaderComponent implements OnInit  {
   ];
   filteredOptions: Observable<string[]> | undefined;
 
-  constructor() { }
+  constructor(private subser:SubjectService, @Inject ('BaseURL') public BaseURL) { }
 
-  ngOnInit(): void {
-
-
+  ngOnInit(): void {    
 
     this.filteredOptions=this.activity.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value)),
     );
   }
+
 
  
 
@@ -48,8 +51,18 @@ export class HeaderComponent implements OnInit  {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  public onToggleSidenav=()=>{
+    this.sidenavToggle.emit();
+  }
+
 }
+
+
+
 function consolelog(mqAlias: string) {
   throw new Error('Function not implemented.');
+
+  
 }
+
 

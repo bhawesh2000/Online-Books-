@@ -1,0 +1,23 @@
+
+    <mat-nav-list class="navbar" style="background:#512DA8;">
+
+        <mat-list-item [matMenuTriggerFor]="SubMenu">
+            <mat-icon>unfold_more</mat-icon>
+            <a matline>Subjects</a>
+        </mat-list-item> 
+        <mat-menu #SubMenu="matMenu">
+            <button mat-menu-item (click)="onSidenavClose()">Biology</button>
+            <button mat-menu-item (click)="onSidenavClose()">Chemistry</button>
+        </mat-menu> 
+       
+        <div>
+        <mat-list-item [matMenuTriggerFor]="Menu"> 
+            <mat-icon>unfold_more</mat-icon>
+            <a matline>Language</a>
+        </mat-list-item> 
+        <mat-menu #Menu="matMenu">
+          <mat-option></mat-option> 
+        </mat-menu>
+        </div>
+    </mat-nav-list>
+
